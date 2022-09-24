@@ -1,6 +1,7 @@
 package pro.sky.kursovayatwo;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -14,8 +15,8 @@ public class ExamController {
         this.examinerService = examinerService;
     }
 
-    @GetMapping(path = "/exam/java")
-    public List<Question> getQuestions(int amount) {
+    @GetMapping(path = "/exam/get")
+    public List<Question> getQuestions(@RequestParam("amount") int amount) {
         return examinerService.getRandomQuestion(amount);
     }
 }
