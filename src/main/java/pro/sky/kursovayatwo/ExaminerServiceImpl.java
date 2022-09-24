@@ -19,17 +19,18 @@ public class ExaminerServiceImpl implements ExaminerService {
     @Override
     public List<Question> getRandomQuestion(int a) {
         List<Question> randomQuestion = new ArrayList<>();
-        int size = questionService.getAllQuestions().size();
+        List<Question> allQuestions = questionService.getAllQuestions();
+        int size = allQuestions.size();
         if(a > size){
             throw new RuntimeException("BAD_REQUEST");
         } else {
             for (int i = 0; i < a; i++) {
                 int m = questionService.getRandomQuestion(size);
-                Question question = questionService.getAllQuestions().get(m);
+                Question question = allQuestions.get(m);
                 while (randomQuestion.contains(question)) {
                     m = questionService.getRandomQuestion(size);
                 }
-                question = questionService.getAllQuestions().get(m);
+                question = allQuestions.get(m);
                 randomQuestion.add(i, question);
             }
             return randomQuestion;
