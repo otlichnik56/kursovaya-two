@@ -1,4 +1,4 @@
-package pro.sky.kursovayatwo;
+package pro.sky.kursovayatwo.Exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import pro.sky.kursovayatwo.Class.Question;
+import pro.sky.kursovayatwo.Impl.ExaminerServiceImpl;
+import pro.sky.kursovayatwo.Service.ExaminerService;
+import pro.sky.kursovayatwo.Service.QuestionService;
 
 import java.util.Collections;
 import java.util.List;

@@ -1,6 +1,10 @@
-package pro.sky.kursovayatwo;
+package pro.sky.kursovayatwo.Impl;
 
 import org.springframework.stereotype.Service;
+import pro.sky.kursovayatwo.Exception.FewerQuestionsException;
+import pro.sky.kursovayatwo.Class.Question;
+import pro.sky.kursovayatwo.Service.ExaminerService;
+import pro.sky.kursovayatwo.Service.QuestionService;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package pro.sky.kursovayatwo;
+package pro.sky.kursovayatwo.Class;
 
 import java.util.Objects;
 

@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import pro.sky.kursovayatwo.Class.Question;
+import pro.sky.kursovayatwo.Impl.JavaQuestionService;
+import pro.sky.kursovayatwo.Repository.JavaQuestionRepository;
+import pro.sky.kursovayatwo.Service.QuestionService;
 
 import java.util.List;
 
@@ -22,7 +26,7 @@ public class JavaQuestionServiceTest {
 
     @BeforeEach
     public void setUp() {
-        questionService = new JavaQuestionService(questions);
+        questionService = new JavaQuestionService(new JavaQuestionRepository(questions));
     }
 
     @Test

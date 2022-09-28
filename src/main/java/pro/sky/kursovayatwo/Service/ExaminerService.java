@@ -1,4 +1,6 @@
-package pro.sky.kursovayatwo;
+package pro.sky.kursovayatwo.Service;
+
+import pro.sky.kursovayatwo.Class.Question;
 
 import java.util.Set;
 

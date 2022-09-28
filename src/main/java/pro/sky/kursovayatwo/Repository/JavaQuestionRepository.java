@@ -1,16 +1,16 @@
-package pro.sky.kursovayatwo;
+package pro.sky.kursovayatwo.Repository;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
+import pro.sky.kursovayatwo.Class.Question;
+import pro.sky.kursovayatwo.Service.QuestionRepositoryService;
 
 import java.util.List;
-import java.util.Random;
 
-@Service
-public class MathQuestionService implements QuestionService{
-
+@Repository
+public class JavaQuestionRepository implements QuestionRepositoryService {
     private final List<Question> questions;
 
-    public MathQuestionService(List<Question> questions) {
+    public JavaQuestionRepository(List<Question> questions) {
         this.questions = questions;
     }
 
@@ -27,12 +27,6 @@ public class MathQuestionService implements QuestionService{
     @Override
     public void removeQuestion(Question question) {
         questions.remove(question);
-    }
-
-    @Override
-    public int getRandomQuestion(int a) {
-        final Random random = new Random();
-        return random.nextInt(a);
     }
 
 }
