@@ -1,9 +1,9 @@
 package pro.sky.kursovayatwo;
 
-import java.util.List;
+import java.util.Set;
 
 public interface ExaminerService {
 
-    List<Question> getRandomQuestion(int a);
+    Set<Question> getRandomQuestion(int a);
 
 }
