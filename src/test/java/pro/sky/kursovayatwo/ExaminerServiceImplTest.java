@@ -16,27 +16,30 @@ import static org.mockito.Mockito.*;
 public class ExaminerServiceImplTest {
 
     @Mock
-    private QuestionService questionService;
+    private QuestionService javaQuestionService;
+
+    @Mock
+    private QuestionService mathQuestionService;
 
     private ExaminerService examinerService;
 
     @BeforeEach
     void setUp() {
-        examinerService = new ExaminerServiceImpl(questionService);
+        examinerService = new ExaminerServiceImpl(javaQuestionService, mathQuestionService);
     }
 
     @Test
     void getRandomQuestionWithThrowingException() {
-        when(questionService.getAllQuestions())
+        when(javaQuestionService.getAllQuestions())
                 .thenReturn(Collections.emptyList());
         Assertions.assertThrows(RuntimeException.class, () -> examinerService.getRandomQuestion(1));
-        verify(questionService, never()).getRandomQuestion(anyInt());
-        verify(questionService, times(1)).getAllQuestions();
+        verify(javaQuestionService, never()).getRandomQuestion(anyInt());
+        verify(javaQuestionService, times(1)).getAllQuestions();
     }
 
     @Test
     void getRandomQuestion() {
-        when(questionService.getAllQuestions())
+        when(javaQuestionService.getAllQuestions())
                 .thenReturn(List.of(
                         new Question("Вопрос первый", "Ответ первый"),
                         new Question("Вопрос второй", "Ответ второй"),
@@ -45,8 +48,8 @@ public class ExaminerServiceImplTest {
                         new Question("Вопрос пятый", "Ответ пятый")
                 ));
         examinerService.getRandomQuestion(4);
-        verify(questionService, atLeast(1)).getRandomQuestion(anyInt());
-        verify(questionService, times(1)).getAllQuestions();
+        verify(javaQuestionService, atLeast(1)).getRandomQuestion(anyInt());
+        verify(javaQuestionService, times(1)).getAllQuestions();
     }
 
 }

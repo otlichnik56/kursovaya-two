@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("java")
-public class JavaQuestionController {
+@RequestMapping("math")
+public class MathQuestionController {
 
     private final QuestionService questionService;
 
-    public JavaQuestionController(@Qualifier("javaQuestionService") QuestionService questionService) {
+    public MathQuestionController(@Qualifier("mathQuestionService") QuestionService questionService) {
         this.questionService = questionService;
     }
 
@@ -26,7 +26,7 @@ public class JavaQuestionController {
 
     @GetMapping (path = "add")
     public String addQuestion(@RequestParam("question") String question,
-                            @RequestParam("answer") String answer) {
+                              @RequestParam("answer") String answer) {
         Question questionAnswer = new Question(question, answer);
         questionService.addQuestion(questionAnswer);
         return "Вопрос и ответ успешно добавлены";
@@ -34,7 +34,7 @@ public class JavaQuestionController {
 
     @GetMapping(path = "remove")
     public String removeQuestion(@RequestParam("question") String question,
-                               @RequestParam("answer") String answer) {
+                                 @RequestParam("answer") String answer) {
         Question questionAnswer = new Question(question, answer);
         questionService.removeQuestion(questionAnswer);
         return "Вопрос и ответ успешно удалены";
